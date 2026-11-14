@@ -34,9 +34,9 @@ const exerciseGuide={
 // Foto reali degli esercizi (Free Exercise DB, pubblico dominio). Due fotogrammi: inizio e fine del movimento.
 const EX_PHOTO={'Goblet squat':'goblet-squat','Squat con manubri':'squat-manubri','Stacco rumeno con manubri':'stacco-rumeno','Stacco rumeno':'stacco-rumeno','Glute bridge':'glute-bridge','Step-up':'step-up','Abduzioni con elastico':'abduzioni-elastico','Rematore con manubri':'rematore-manubri','Rematore':'rematore','Chest press su panca':'chest-press','Chest press':'chest-press','Shoulder press':'shoulder-press','Lat pulldown con elastico':'lat-pulldown','Curl bicipiti':'curl-bicipiti','Estensioni tricipiti':'tricipiti','Bird dog':'quadrupedia:1','Farmer carry':'farmer-carry','Cyclette moderata':'cyclette','Vogatore o cyclette':'vogatore','Pilates leggero':'pilates','Pilates e stabilità':'pilates','Mobilità e respirazione':'quadrupedia','Mobilità dolce':'mobilita','Stretching':'stretching','Camminata tranquilla':'camminata','Recupero completo':'recupero'};
 const PHOTO_NOTE={'Bird dog':'Posizione di partenza in quadrupedia: da qui allunga braccio e gamba opposti.','Lat pulldown con elastico':'In foto con il cavo: con l’elastico il movimento è lo stesso.','Abduzioni con elastico':'Elastico sopra le ginocchia, ginocchia che spingono verso l’esterno.'};
-const PHOTO_LIST=[...new Set(Object.values(EX_PHOTO))].flatMap(v=>{const [f,n]=v.split(':');return n==='1'?[`./img/${f}-0.jpg`]:[`./img/${f}-0.jpg`,`./img/${f}-1.jpg`]});
+const PHOTO_LIST=[...new Set(Object.values(EX_PHOTO))].flatMap(v=>{const [f,n]=v.split(':');return n==='1'?[`./foto-${f}-0.jpg`]:[`./foto-${f}-0.jpg`,`./foto-${f}-1.jpg`]});
 function exerciseIcon(name){const v=EX_PHOTO[name];if(!v)return '';const [f,n]=v.split(':'),single=n==='1',note=PHOTO_NOTE[name];
-return `<figure class="exercise-photo ${single?'single':''}" aria-label="Foto: ${esc(name)}"><img src="./img/${f}-0.jpg" alt="${esc(name)}: posizione iniziale" loading="lazy" decoding="async" width="720" height="480">${single?'':`<img class="end" src="./img/${f}-1.jpg" alt="${esc(name)}: posizione finale" loading="lazy" decoding="async" width="720" height="480"><span class="phase" aria-hidden="true"><b>Inizio</b><b>Fine</b></span>`}${note?`<figcaption>${esc(note)}</figcaption>`:''}</figure>`}
+return `<figure class="exercise-photo ${single?'single':''}" aria-label="Foto: ${esc(name)}"><img src="./foto-${f}-0.jpg" alt="${esc(name)}: posizione iniziale" loading="lazy" decoding="async" width="720" height="480">${single?'':`<img class="end" src="./foto-${f}-1.jpg" alt="${esc(name)}: posizione finale" loading="lazy" decoding="async" width="720" height="480"><span class="phase" aria-hidden="true"><b>Inizio</b><b>Fine</b></span>`}${note?`<figcaption>${esc(note)}</figcaption>`:''}</figure>`}
 const recipes={
 'Uova e avocado':['Lava gli spinaci o i pomodorini.','Scalda una padella antiaderente e cuoci le uova con gli albumi, mescolando delicatamente.','Tosta il pane e aggiungi l’avocado a fettine.','Servi le uova con le verdure e il pane.'],
 'Fiocchi di latte':['Lava e taglia cetrioli e pomodorini.','Disponi i fiocchi di latte in una ciotola e aggiungi le verdure.','Completa con i semi di zucca, pepe o erbe aromatiche.','Accompagna con le gallette.'],
@@ -59,7 +59,7 @@ const diffDays=(a,b)=>Math.round((new Date(b+'T12:00:00')-new Date(a+'T12:00:00'
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 /* ===== Versione 2.0 · app per iPhone ===== */
-const VERSION='2.2';
+const VERSION='2.3';
 const WD=['Dom','Lun','Mar','Mer','Gio','Ven','Sab'];
 const MEALS=['Colazione','Pranzo','Cena'];
 const HABITS=['Pasti equilibrati','Frutta e verdura','Acqua durante il giorno','Movimento o riposo consapevole','10 minuti di decompressione','Routine del sonno'];

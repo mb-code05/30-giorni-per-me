@@ -1,6 +1,6 @@
 # 30 giorni per me · Soft Rose
 
-**Versione 2.2** – app per iPhone (PWA): si installa dalla schermata Home, si apre a tutto schermo e funziona offline.
+**Versione 2.3** – app per iPhone (PWA): si installa dalla schermata Home, si apre a tutto schermo e funziona offline.
 
 ## Novità della 2.0
 
@@ -25,7 +25,7 @@ PWA statica, mobile-first, in italiano. Nessun server, account o build necessari
 ## Pubblicazione con GitHub Pages
 
 1. Crea un repository pubblico su GitHub (es. `30-giorni-per-me`).
-2. Carica **il contenuto di questa cartella nella radice del repository**, non la cartella contenitore. Devono comparire `index.html`, `app.js`, `style.css`, `sw.js`, `manifest.webmanifest` e la cartella `icons/` (importante: senza, l'icona su iPhone non compare).
+2. Carica **il contenuto di questa cartella nella radice del repository**, non la cartella contenitore. Devono comparire `index.html`, `app.js`, `style.css`, `sw.js`, `manifest.webmanifest` le icone `icon-*.png` e tutte le foto `foto-*.jpg`. Non ci sono cartelle: seleziona tutti i file insieme e caricali.
 3. Apri **Settings → Pages**.
 4. In **Build and deployment**, scegli **Deploy from a branch**; seleziona `main` e `/ (root)`; salva.
 5. Attendi la pubblicazione e apri `https://TUO-USERNAME.github.io/30-giorni-per-me/` (sostituisci il tuo username e il nome del repository).
@@ -47,4 +47,4 @@ Il piano è orientativo e non sostituisce indicazioni cliniche o nutrizionali pe
 
 ## Crediti foto
 
-Le foto degli esercizi (cartella `img/`) provengono da [Free Exercise DB](https://github.com/yuhonas/free-exercise-db), rilasciato in pubblico dominio (Unlicense).
+Le foto degli esercizi (file `foto-*.jpg`) provengono da [Free Exercise DB](https://github.com/yuhonas/free-exercise-db), rilasciato in pubblico dominio (Unlicense).

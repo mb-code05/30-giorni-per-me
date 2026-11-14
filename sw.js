@@ -1,6 +1,6 @@
 // Versione 2.0: rete prima, cache come riserva. Gli aggiornamenti arrivano da soli, senza ?v= nell'indirizzo.
-const CACHE='soft-rose-v2-2';
-const ASSETS=['./','./index.html','./style.css','./app.js','./manifest.webmanifest','./icons/icon-180.png','./icons/icon-192.png','./icons/icon-512.png'];
+const CACHE='soft-rose-v2-3';
+const ASSETS=['./','./index.html','./style.css','./app.js','./manifest.webmanifest','./icon-180.png','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',e=>{
@@ -21,4 +21,4 @@ self.addEventListener('fetch',e=>{
 });
 
 // Scarica in anticipo le foto degli esercizi per l'uso offline (senza bloccare l'app)
-self.addEventListener('message',e=>{if(e.data?.type==='precache'&&Array.isArray(e.data.urls)){e.waitUntil(caches.open(CACHE).then(c=>Promise.allSettled(e.data.urls.filter(u=>typeof u==='string'&&u.startsWith('./img/')).map(u=>c.match(u).then(hit=>hit||c.add(u))))))}});
+self.addEventListener('message',e=>{if(e.data?.type==='precache'&&Array.isArray(e.data.urls)){e.waitUntil(caches.open(CACHE).then(c=>Promise.allSettled(e.data.urls.filter(u=>typeof u==='string'&&u.startsWith('./foto-')).map(u=>c.match(u).then(hit=>hit||c.add(u))))))}});
