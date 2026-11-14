@@ -26,3 +26,8 @@ html{background:#faf5f0;-webkit-text-size-adjust:100%}body{-webkit-tap-highlight
 .timer{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(78px + env(safe-area-inset-bottom));background:#704c56;color:#fff;border-radius:99px;padding:6px 6px 6px 18px;display:flex;align-items:center;gap:10px;z-index:9;font-weight:700;font-variant-numeric:tabular-nums;box-shadow:0 6px 20px #4d2a3533}.timer button{background:#ffffff26;border:0;color:#fff;border-radius:99px;width:36px;height:36px}
 .toast{bottom:calc(85px + env(safe-area-inset-bottom))}
 @media(max-width:370px){.grid3.stats .stat{font-size:17px}.water{gap:3px}}
+
+/* Versione 2.1: illustrazioni esercizi a colori */
+.exercise-layout{display:block}
+.exercise-art,.exercise-art[class]{display:block;width:100%;height:auto;aspect-ratio:16/10;max-height:210px;flex:none;border:0;border-radius:16px;margin:2px 0 12px;box-shadow:0 3px 12px #68404a10}
+@media(min-width:650px){.exercise-art,.exercise-art[class]{max-height:240px}}

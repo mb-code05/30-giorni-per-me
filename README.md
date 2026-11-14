@@ -1,9 +1,10 @@
 # 30 giorni per me · Soft Rose
 
-**Versione 2.0** – app per iPhone (PWA): si installa dalla schermata Home, si apre a tutto schermo e funziona offline.
+**Versione 2.1** – app per iPhone (PWA): si installa dalla schermata Home, si apre a tutto schermo e funziona offline.
 
 ## Novità della 2.0
 
+- Illustrazioni a colori per ogni esercizio (2.1)
 - Icona per iPhone (prima mancava la cartella `icons/` nel repository)
 - Aggiornamenti automatici: non serve più `?v=` nell'indirizzo
 - Corretto “Come ti senti oggi?” che non salvava la scelta
