@@ -1,11 +1,30 @@
 # 30 giorni per me · Soft Rose
 
+**Versione 2.0** – app per iPhone (PWA): si installa dalla schermata Home, si apre a tutto schermo e funziona offline.
+
+## Novità della 2.0
+
+- Icona per iPhone (prima mancava la cartella `icons/` nel repository)
+- Aggiornamenti automatici: non serve più `?v=` nell'indirizzo
+- Corretto “Come ti senti oggi?” che non salvava la scelta
+- Home “Oggi” con pasti da spuntare, acqua, stato del movimento e ultimo peso
+- Calendario con giorni della settimana, date reali e giorno di oggi evidenziato
+- Menù per settimana con data reale e totale kcal/proteine
+- Timer di recupero 60/90 s e “ultima volta” per i pesi degli esercizi
+- Grafici di peso, vita, dolore ed energia
+- Profilo modificabile (peso di partenza e obiettivo)
+- Lista spesa condivisibile (solo ciò che manca) e backup con il foglio Condividi di iOS
+- Fine dei 30 giorni: pulsante per iniziare un nuovo ciclo mantenendo il diario
+- Rifiniture iPhone: aree sicure del notch, niente zoom sui campi, pulsanti più grandi
+
+I dati salvati con la versione precedente restano (stessa chiave di salvataggio).
+
 PWA statica, mobile-first, in italiano. Nessun server, account o build necessario.
 
 ## Pubblicazione con GitHub Pages
 
 1. Crea un repository pubblico su GitHub (es. `30-giorni-per-me`).
-2. Carica **il contenuto di questa cartella nella radice del repository**, non la cartella contenitore. Devono comparire `index.html`, `app.js`, `style.css`, `sw.js`, `manifest.webmanifest` e `icons/`.
+2. Carica **il contenuto di questa cartella nella radice del repository**, non la cartella contenitore. Devono comparire `index.html`, `app.js`, `style.css`, `sw.js`, `manifest.webmanifest` e la cartella `icons/` (importante: senza, l'icona su iPhone non compare).
 3. Apri **Settings → Pages**.
 4. In **Build and deployment**, scegli **Deploy from a branch**; seleziona `main` e `/ (root)`; salva.
 5. Attendi la pubblicazione e apri `https://TUO-USERNAME.github.io/30-giorni-per-me/` (sostituisci il tuo username e il nome del repository).

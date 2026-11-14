@@ -2,3 +2,27 @@
 
 /* Versione 1.1: guide visive esercizi e ricette espandibili */
 .exercise-layout{display:flex;gap:13px;align-items:flex-start}.exercise-art{width:96px;height:96px;flex:0 0 96px;border-radius:15px;background:#fbf0f0;border:1px solid #eedbdd}.exercise-content{flex:1;min-width:0}.exercise-cue{font-size:13px;color:#806d72;line-height:1.5;margin:7px 0}.recipe-details{margin:12px 0;background:#fff;border:1px solid #ead8da;border-radius:12px;padding:11px 13px}.recipe-details summary{cursor:pointer;font-weight:700;color:#885d6a;line-height:1.5}.recipe-details ol{padding-left:21px;margin:12px 0 6px}.recipe-details li{margin-bottom:9px;line-height:1.5;font-size:14px}.recipe-details .notice{margin-bottom:0}@media(max-width:370px){.exercise-art{width:76px;height:76px;flex-basis:76px}}
+
+/* Versione 2.0: esperienza da app su iPhone */
+html{background:#faf5f0;-webkit-text-size-adjust:100%}body{-webkit-tap-highlight-color:transparent;overscroll-behavior-y:none;min-height:100vh}
+.shell{padding-top:calc(22px + env(safe-area-inset-top));padding-left:max(17px,env(safe-area-inset-left));padding-right:max(17px,env(safe-area-inset-right))}
+.nav,.nav button,.seg button,.btn,.day,.glass{-webkit-user-select:none;user-select:none;touch-action:manipulation}
+.nav button{min-height:48px}.btn,.seg button{min-height:44px}
+.btn:active,.seg button:active,.day:active,.glass:active{transform:scale(.97)}
+.field input,.field textarea,.field select{font-size:16px;-webkit-appearance:none;appearance:none}.field select{background:white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23996878' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 12px center;padding-right:32px}
+.seg button:disabled{opacity:.4}
+.grid3.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.grid3.stats .stat{font-size:20px}
+.install{background:#fff8f6;border-color:#e9cfd3}.steps{padding-left:20px;margin:6px 0;line-height:1.7;font-size:14px}.share-ico{display:inline-block;color:#2f7cf6;font-weight:700}
+.close,.link{background:none;border:0;color:#9f6578;font-weight:700;padding:6px;min-height:36px}
+.tick{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:#795963}
+.water{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:4px 0}.glass{border:0;background:none;padding:2px;min-height:44px;display:grid;place-items:center}.glass span{width:26px;height:34px;border:2px solid #d5b9be;border-top-width:3px;border-radius:3px 3px 9px 9px;position:relative;overflow:hidden;display:block}.glass.full span{border-color:#b78292}.glass.full span:after{content:'';position:absolute;left:0;right:0;bottom:0;height:72%;background:#e8c4cc}
+.calendar .wd{text-align:center;font-size:11px;font-weight:700;color:#a08489;padding-bottom:2px}.day{min-height:54px}.day small{font-size:10px;opacity:.75}.day.today{box-shadow:0 0 0 2px #b78292 inset}.day.active.today{box-shadow:0 0 0 2px #fff inset}
+.legend.today-l{display:inline-block;width:12px;height:12px;border-radius:4px;box-shadow:0 0 0 2px #b78292 inset;vertical-align:-2px}.dot.inline{display:inline-block;vertical-align:1px}
+.seg.days{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.seg.days button{display:grid;padding:6px 0;line-height:1.2}.seg.days small{font-size:10px}
+.seg.tight{margin:0}.seg.tight button{min-width:44px}
+.totals{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;background:#f6eaea;border-radius:11px;padding:10px 12px;margin:12px 0 4px;font-size:13px;color:#704c56}
+.listrow.got span{text-decoration:line-through;color:#ad999b}
+.timerbtns{align-items:center}
+.timer{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(78px + env(safe-area-inset-bottom));background:#704c56;color:#fff;border-radius:99px;padding:6px 6px 6px 18px;display:flex;align-items:center;gap:10px;z-index:9;font-weight:700;font-variant-numeric:tabular-nums;box-shadow:0 6px 20px #4d2a3533}.timer button{background:#ffffff26;border:0;color:#fff;border-radius:99px;width:36px;height:36px}
+.toast{bottom:calc(85px + env(safe-area-inset-bottom))}
+@media(max-width:370px){.grid3.stats .stat{font-size:17px}.water{gap:3px}}
