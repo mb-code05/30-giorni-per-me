@@ -31,67 +31,12 @@ const exerciseGuide={
 'Camminata tranquilla':['walk','Cammina a passo facile, rallentando o fermandoti se necessario.'],
 'Recupero completo':['rest','Riposa senza dover compensare gli allenamenti saltati.']
 };
-// Illustrazioni a colori, disegnate in SVG (funzionano offline). Ogni posa è definita da articolazioni.
-const ART={skin:'#f1c6b2',skinB:'#dcab97',top:'#d98ea0',topB:'#c27689',leg:'#7d5a6b',legB:'#5f4453',hair:'#5b3b36',shoe:'#fbf4ef',db:'#5d4f56',mat:'#b9cfc0',matB:'#a3bdab',wood:'#d9b99b'};
-const BG={strength:['#fbe9ec','#f4d3da'],cardio:['#fdeedd','#f7d9bb'],soft:['#eaf2ea','#d3e5d6']};
-const POSES={
- goblet:{bg:'strength',f:1,h:[57,27],n:[52,37],p:[40,58],aB:[[60,46],[60,41]],aF:[[57,48],[61,42]],lB:[[57,60],[51,84]],lF:[[60,61],[54,84]],props:'gob'},
- squatdb:{bg:'strength',f:1,h:[57,27],n:[52,37],p:[40,58],aB:[[54,49],[56,60]],aF:[[52,49],[53,61]],lB:[[57,60],[51,84]],lF:[[60,61],[54,84]],props:'dbHands'},
- hinge:{bg:'strength',f:1,h:[73,37],n:[64,42],p:[42,50],aB:[[63,54],[62,65]],aF:[[61,54],[59,66]],lB:[[45,67],[43,84]],lF:[[48,67],[47,84]],props:'dbHands'},
- bridge:{bg:'soft',f:0,lying:1,h:[17,75],n:[25,74],p:[50,60],aB:[[33,79],[44,80]],aF:[[34,80],[45,81]],lB:[[63,52],[71,80]],lF:[[64,53],[73,80]],props:'mat'},
- step:{bg:'strength',f:1,h:[52,19],n:[50,29],p:[47,51],aB:[[52,40],[56,50]],aF:[[46,40],[43,50]],lB:[[45,68],[41,84]],lF:[[60,57],[63,71]],props:'box'},
- band:{bg:'strength',f:0,h:[50,22],n:[50,32],p:[50,55],aB:[[37,42],[41,53]],aF:[[63,42],[59,53]],lB:[[38,68],[40,84]],lF:[[62,68],[60,84]],props:'band'},
- row:{bg:'strength',f:1,h:[70,34],n:[61,40],p:[40,51],aB:[[60,53],[60,64]],aF:[[49,44],[54,55]],lB:[[46,67],[42,84]],lF:[[49,67],[47,84]],props:'dbHands'},
- press:{bg:'strength',f:0,lying:1,h:[21,58],n:[29,60],p:[54,60],aB:[[32,50],[33,38]],aF:[[30,50],[31,38]],lB:[[66,53],[70,84]],lF:[[68,54],[74,84]],props:'bench dbFlat'},
- overhead:{bg:'strength',f:0,h:[50,24],n:[50,34],p:[50,58],aB:[[36,30],[38,16]],aF:[[64,30],[62,16]],lB:[[46,71],[45,85]],lF:[[54,71],[55,85]],props:'dbFlat'},
- pulldown:{bg:'strength',f:0,h:[50,30],n:[50,40],p:[50,62],aB:[[35,46],[37,31]],aF:[[65,46],[63,31]],lB:[[44,74],[43,86]],lF:[[56,74],[57,86]],props:'pull'},
- curl:{bg:'strength',f:0,h:[50,22],n:[50,32],p:[50,57],aB:[[42,47],[37,36]],aF:[[58,47],[63,36]],lB:[[46,71],[45,85]],lF:[[54,71],[55,85]],props:'dbFlat'},
- triceps:{bg:'strength',f:1,h:[50,26],n:[49,36],p:[48,60],aB:[[42,46],[44,57]],aF:[[55,21],[56,10]],lB:[[46,73],[45,86]],lF:[[51,73],[52,86]],props:'dbTop'},
- bird:{bg:'soft',f:1,h:[71,48],n:[63,54],p:[40,57],aB:[[62,66],[62,77]],aF:[[75,51],[87,49]],lB:[[40,77],[25,78]],lF:[[26,55],[12,53]],props:'mat'},
- carry:{bg:'strength',f:1,h:[52,22],n:[51,32],p:[50,56],aB:[[47,45],[46,59]],aF:[[55,45],[56,59]],lB:[[45,70],[39,85]],lF:[[56,70],[61,85]],props:'dbV'},
- bike:{bg:'cardio',f:1,h:[57,24],n:[52,33],p:[38,51],aB:[[60,42],[68,39]],aF:[[59,43],[67,40]],lB:[[51,59],[50,73]],lF:[[56,52],[58,67]],props:'bike'},
- rower:{bg:'cardio',f:1,h:[33,46],n:[36,56],p:[44,73],aB:[[30,64],[42,62]],aF:[[31,65],[43,63]],lB:[[57,61],[68,76]],lF:[[58,62],[70,76]],props:'rower'},
- pilates:{bg:'soft',f:0,lying:1,h:[19,71],n:[27,75],p:[51,78],aB:[[38,67],[48,66]],aF:[[39,68],[49,67]],lB:[[57,62],[69,63]],lF:[[58,63],[71,64]],props:'mat'},
- stretch:{bg:'soft',f:1,h:[59,53],n:[50,58],p:[33,76],aB:[[61,66],[70,74]],aF:[[60,67],[71,75]],lB:[[52,79],[72,79]],lF:[[53,80],[74,80]],props:'mat'},
- walk:{bg:'soft',f:1,h:[53,21],n:[51,31],p:[49,55],aB:[[56,43],[61,50]],aF:[[45,43],[41,52]],lB:[[45,69],[37,84]],lF:[[56,68],[62,84]],props:'path'},
- rest:{bg:'soft',f:0,lying:1,h:[16,72],n:[24,75],p:[49,78],aB:[[33,81],[42,75]],aF:[[34,82],[44,76]],lB:[[58,64],[70,79]],lF:[[59,65],[72,80]],props:'mat pillow moon'}
-};
-const EX_POSE={'Goblet squat':'goblet','Squat con manubri':'squatdb','Stacco rumeno con manubri':'hinge','Stacco rumeno':'hinge','Glute bridge':'bridge','Step-up':'step','Abduzioni con elastico':'band','Rematore con manubri':'row','Rematore':'row','Chest press su panca':'press','Chest press':'press','Shoulder press':'overhead','Lat pulldown con elastico':'pulldown','Curl bicipiti':'curl','Estensioni tricipiti':'triceps','Bird dog':'bird','Farmer carry':'carry','Cyclette moderata':'bike','Vogatore o cyclette':'rower','Pilates leggero':'pilates','Pilates e stabilità':'pilates','Mobilità e respirazione':'stretch','Mobilità dolce':'walk','Stretching':'stretch','Camminata tranquilla':'walk','Recupero completo':'rest'};
-function exerciseIcon(name){const P=POSES[EX_POSE[name]]||POSES.stretch,[c1,c2]=BG[P.bg],pr=' '+P.props+' ',uid='g'+Math.random().toString(36).slice(2,8);
-const L=(pts,c,w)=>`<polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`;
-const sh=[P.n[0]+(P.p[0]-P.n[0])*.12,P.n[1]+(P.p[1]-P.n[1])*.12];
-const mid=(a,b,t)=>[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t];
-const arm=(a,c,s)=>L([sh,a[0],a[1]],c,5.5)+L([sh,mid(sh,a[0],.45)],s,7);
-const leg=(l,c)=>L([P.p,l[0],l[1]],c,8.5)+`<ellipse cx="${l[1][0]+(P.lying?0:2*(P.f||0))}" cy="${l[1][1]}" rx="${P.lying?2.6:4.6}" ry="2.6" fill="${ART.shoe}" stroke="#d8c3bf" stroke-width=".8"/>`;
-const db=(x,y,v)=>v?`<g fill="${ART.db}"><rect x="${x-1}" y="${y-6}" width="2" height="12" rx="1"/><rect x="${x-3.5}" y="${y-8}" width="7" height="4" rx="1.5"/><rect x="${x-3.5}" y="${y+4}" width="7" height="4" rx="1.5"/></g>`:`<g fill="${ART.db}"><rect x="${x-6}" y="${y-1}" width="12" height="2" rx="1"/><rect x="${x-8}" y="${y-3.5}" width="4" height="7" rx="1.5"/><rect x="${x+4}" y="${y-3.5}" width="4" height="7" rx="1.5"/></g>`;
-let back='',front='';
-if(pr.includes(' mat '))back+=`<rect x="6" y="80" width="88" height="5" rx="2.5" fill="${ART.mat}"/><rect x="6" y="83" width="88" height="2" rx="1" fill="${ART.matB}"/>`;
-if(pr.includes(' pillow '))back+=`<rect x="7" y="72" width="17" height="8" rx="4" fill="#fff" stroke="#e6d6d6"/>`;
-if(pr.includes(' moon '))back+=`<path d="M82 14a9 9 0 1 0 6 15a7 7 0 1 1-6-15z" fill="#f3d9a4"/><circle cx="68" cy="12" r="1.2" fill="#fff"/><circle cx="74" cy="24" r="1" fill="#fff"/>`;
-if(pr.includes(' box '))back+=`<rect x="56" y="71" width="32" height="15" rx="2.5" fill="${ART.wood}"/><rect x="56" y="71" width="32" height="3" rx="1.5" fill="#e8cfb6"/>`;
-if(pr.includes(' bench '))back+=`<rect x="12" y="62" width="58" height="6" rx="3" fill="#8a6e78"/><rect x="18" y="68" width="4" height="18" fill="#a28992"/><rect x="60" y="68" width="4" height="18" fill="#a28992"/>`;
-if(pr.includes(' path '))back+=`<path d="M0 86 Q50 80 100 86" fill="none" stroke="#c9dccb" stroke-width="4"/><circle cx="84" cy="40" r="10" fill="#c6dcc6"/><rect x="83" y="48" width="2.5" height="36" fill="#b49a87"/><circle cx="16" cy="16" r="6" fill="#f6d9a0"/>`;
-if(pr.includes(' bike '))back+=`<g fill="none" stroke="#8a6e78" stroke-width="3" stroke-linecap="round"><path d="M38 54 L48 74 L64 74 L68 40"/><path d="M30 86 H78"/><path d="M48 74 L40 86 M64 74 L72 86"/></g><circle cx="56" cy="72" r="9" fill="#efd2d8" stroke="#8a6e78" stroke-width="2.5"/><rect x="31" y="50" width="12" height="4" rx="2" fill="#5d4f56"/><rect x="65" y="37" width="8" height="3.5" rx="1.75" fill="#5d4f56"/>`;
-if(pr.includes(' rower '))back+=`<rect x="10" y="78" width="80" height="4" rx="2" fill="#8a6e78"/><circle cx="84" cy="70" r="8" fill="#efd2d8" stroke="#8a6e78" stroke-width="2.5"/><rect x="36" y="74" width="14" height="4" rx="2" fill="#5d4f56"/><line x1="43" y1="62" x2="80" y2="68" stroke="#5d4f56" stroke-width="1.2"/>`;
-if(pr.includes(' pull '))back+=`<rect x="20" y="6" width="60" height="4" rx="2" fill="#8a6e78"/><path d="M37 31 L50 10 L63 31" fill="none" stroke="#d47b93" stroke-width="2.5" stroke-linecap="round"/>`;
-const shadow=P.lying?'':`<ellipse cx="${P.p[0]}" cy="87" rx="20" ry="2.6" fill="#00000012"/>`;
-// arti posteriori, busto, arti anteriori
-let fig=leg(P.lB,ART.legB)+arm(P.aB,ART.skinB,ART.topB);
-fig+=L([P.n,P.p],ART.top,12)+`<circle cx="${P.p[0]}" cy="${P.p[1]}" r="6" fill="${ART.leg}"/>`;
-fig+=L([P.n,mid(P.n,P.h,.55)],ART.skin,5);
-const f=P.f||0,hx=P.h[0],hy=P.h[1];
-const hair=P.lying?`<circle cx="${hx-5}" cy="${hy+1}" r="4.2" fill="${ART.hair}"/><path d="M${hx-6.5} ${hy+3} A6.6 6.6 0 0 1 ${hx+1} ${hy-6.4}" fill="none" stroke="${ART.hair}" stroke-width="3.5"/>`:f?`<circle cx="${hx-5.5*f}" cy="${hy-4}" r="3.8" fill="${ART.hair}"/><path d="M${hx+5*f} ${hy-3.5} A6.6 6.6 0 0 0 ${hx-5*f} ${hy+3}" fill="none" stroke="${ART.hair}" stroke-width="4" transform="${f<0?'':''}"/>`:`<circle cx="${hx}" cy="${hy-8.5}" r="3.8" fill="${ART.hair}"/><path d="M${hx-6.2} ${hy+1} A6.4 6.4 0 0 1 ${hx+6.2} ${hy+1}" fill="none" stroke="${ART.hair}" stroke-width="3.6"/>`;
-fig+=`<circle cx="${hx}" cy="${hy}" r="6.6" fill="${ART.skin}"/>${hair}${f?`<circle cx="${hx+3.2*f}" cy="${hy-.5}" r=".9" fill="#5b3b36"/>`:''}<circle cx="${hx+(f?2.2*f:-2.6)}" cy="${hy+2.6}" r="1.4" fill="#eaa7a8" opacity=".7"/>${f?'':`<circle cx="${hx+2.6}" cy="${hy+2.6}" r="1.4" fill="#eaa7a8" opacity=".7"/>`}`;
-fig+=leg(P.lF,ART.leg)+arm(P.aF,ART.skin,ART.top);
-if(pr.includes(' band '))front+=`<path d="M${P.lB[0][0]+1} ${P.lB[0][1]-5} Q50 ${P.lB[0][1]-9} ${P.lF[0][0]-1} ${P.lF[0][1]-5}" fill="none" stroke="#e06f8f" stroke-width="3" stroke-linecap="round"/>`;
-const hb=P.aB[1],hf=P.aF[1];
-if(pr.includes(' dbHands '))front+=db(hf[0],hf[1]+1,0);
-if(pr.includes(' dbFlat '))front+=db(hb[0],hb[1]-1,0)+db(hf[0],hf[1]-1,0);
-if(pr.includes(' dbV '))front+=db(hb[0],hb[1]+4,1)+db(hf[0],hf[1]+4,1);
-if(pr.includes(' dbTop '))front+=db(hf[0],hf[1]-1,0);
-if(pr.includes(' gob '))front+=db(hf[0]+1,hf[1]-2,1);
-return `<svg class="exercise-art" viewBox="-30 0 160 100" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrazione: ${esc(name)}"><defs><linearGradient id="${uid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs><rect x="-30" y="0" width="160" height="100" fill="url(#${uid})"/><circle cx="108" cy="18" r="22" fill="#ffffff55"/><circle cx="-12" cy="70" r="16" fill="#ffffff40"/><rect x="-30" y="86" width="160" height="14" fill="#ffffff70"/>${back}${shadow}${fig}${front}</svg>`}
-
+// Foto reali degli esercizi (Free Exercise DB, pubblico dominio). Due fotogrammi: inizio e fine del movimento.
+const EX_PHOTO={'Goblet squat':'goblet-squat','Squat con manubri':'squat-manubri','Stacco rumeno con manubri':'stacco-rumeno','Stacco rumeno':'stacco-rumeno','Glute bridge':'glute-bridge','Step-up':'step-up','Abduzioni con elastico':'abduzioni-elastico','Rematore con manubri':'rematore-manubri','Rematore':'rematore','Chest press su panca':'chest-press','Chest press':'chest-press','Shoulder press':'shoulder-press','Lat pulldown con elastico':'lat-pulldown','Curl bicipiti':'curl-bicipiti','Estensioni tricipiti':'tricipiti','Bird dog':'quadrupedia:1','Farmer carry':'farmer-carry','Cyclette moderata':'cyclette','Vogatore o cyclette':'vogatore','Pilates leggero':'pilates','Pilates e stabilità':'pilates','Mobilità e respirazione':'quadrupedia','Mobilità dolce':'mobilita','Stretching':'stretching','Camminata tranquilla':'camminata','Recupero completo':'recupero'};
+const PHOTO_NOTE={'Bird dog':'Posizione di partenza in quadrupedia: da qui allunga braccio e gamba opposti.','Lat pulldown con elastico':'In foto con il cavo: con l’elastico il movimento è lo stesso.','Abduzioni con elastico':'Elastico sopra le ginocchia, ginocchia che spingono verso l’esterno.'};
+const PHOTO_LIST=[...new Set(Object.values(EX_PHOTO))].flatMap(v=>{const [f,n]=v.split(':');return n==='1'?[`./img/${f}-0.jpg`]:[`./img/${f}-0.jpg`,`./img/${f}-1.jpg`]});
+function exerciseIcon(name){const v=EX_PHOTO[name];if(!v)return '';const [f,n]=v.split(':'),single=n==='1',note=PHOTO_NOTE[name];
+return `<figure class="exercise-photo ${single?'single':''}" aria-label="Foto: ${esc(name)}"><img src="./img/${f}-0.jpg" alt="${esc(name)}: posizione iniziale" loading="lazy" decoding="async" width="720" height="480">${single?'':`<img class="end" src="./img/${f}-1.jpg" alt="${esc(name)}: posizione finale" loading="lazy" decoding="async" width="720" height="480"><span class="phase" aria-hidden="true"><b>Inizio</b><b>Fine</b></span>`}${note?`<figcaption>${esc(note)}</figcaption>`:''}</figure>`}
 const recipes={
 'Uova e avocado':['Lava gli spinaci o i pomodorini.','Scalda una padella antiaderente e cuoci le uova con gli albumi, mescolando delicatamente.','Tosta il pane e aggiungi l’avocado a fettine.','Servi le uova con le verdure e il pane.'],
 'Fiocchi di latte':['Lava e taglia cetrioli e pomodorini.','Disponi i fiocchi di latte in una ciotola e aggiungi le verdure.','Completa con i semi di zucca, pepe o erbe aromatiche.','Accompagna con le gallette.'],
@@ -114,7 +59,7 @@ const diffDays=(a,b)=>Math.round((new Date(b+'T12:00:00')-new Date(a+'T12:00:00'
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 /* ===== Versione 2.0 · app per iPhone ===== */
-const VERSION='2.1';
+const VERSION='2.2';
 const WD=['Dom','Lun','Mar','Mer','Gio','Ven','Sab'];
 const MEALS=['Colazione','Pranzo','Cena'];
 const HABITS=['Pasti equilibrati','Frutta e verdura','Acqua durante il giorno','Movimento o riposo consapevole','10 minuti di decompressione','Routine del sonno'];
@@ -227,5 +172,5 @@ let lastSeen=today();document.addEventListener('visibilitychange',()=>{if(docume
 
 render();
 try{navigator.storage?.persist?.()}catch{}
-if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').then(()=>navigator.serviceWorker.ready).then(r=>r.active?.postMessage({type:'precache',urls:PHOTO_LIST})).catch(()=>{}));
 })();

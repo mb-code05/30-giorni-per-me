@@ -1,10 +1,10 @@
 # 30 giorni per me · Soft Rose
 
-**Versione 2.1** – app per iPhone (PWA): si installa dalla schermata Home, si apre a tutto schermo e funziona offline.
+**Versione 2.2** – app per iPhone (PWA): si installa dalla schermata Home, si apre a tutto schermo e funziona offline.
 
 ## Novità della 2.0
 
-- Illustrazioni a colori per ogni esercizio (2.1)
+- Foto reali per ogni esercizio, con posizione iniziale e finale (2.2)
 - Icona per iPhone (prima mancava la cartella `icons/` nel repository)
 - Aggiornamenti automatici: non serve più `?v=` nell'indirizzo
 - Corretto “Come ti senti oggi?” che non salvava la scelta
@@ -44,3 +44,7 @@ I dati vengono salvati in `localStorage` nel browser corrente e non sono sincron
 ## Avvertenza
 
 Il piano è orientativo e non sostituisce indicazioni cliniche o nutrizionali personalizzate. Adatta movimento e alimentazione alle indicazioni dei professionisti che seguono endometriosi e psoriasi.
+
+## Crediti foto
+
+Le foto degli esercizi (cartella `img/`) provengono da [Free Exercise DB](https://github.com/yuhonas/free-exercise-db), rilasciato in pubblico dominio (Unlicense).
